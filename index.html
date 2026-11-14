@@ -1,0 +1,364 @@
+<!doctype html>
+<!-- INNLYRA — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены. -->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INNLYRA — программа для гостиницы</title>
+<meta name="description" content="INNLYRA — программа для гостиниц Узбекистана: шахматка номеров, регистрация гостей, оплаты и долги по суткам, смены, касса, отчёты и Telegram-бот директора.">
+<meta name="theme-color" content="#1a0b2e">
+<meta property="og:type" content="website">
+<meta property="og:title" content="INNLYRA — программа для гостиницы">
+<meta property="og:description" content="Шахматка, регистрация гостей, оплаты, смены, касса и отчёты. Директор видит всё в Telegram.">
+<meta property="og:image" content="https://pan1ka0.github.io/innlyra-site/img/og.jpg">
+<meta property="og:url" content="https://pan1ka0.github.io/innlyra-site/">
+<link rel="canonical" href="https://pan1ka0.github.io/innlyra-site/">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top" aria-label="INNLYRA">
+      <img src="img/logo_96.png" alt="" width="40" height="40">
+      <span class="brand__name">INNLYRA</span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Меню">
+      <a href="#features" data-i18n="nav.features">Возможности</a>
+      <a href="#screens" data-i18n="nav.screens">Скриншоты</a>
+      <a href="#channels">Channel Manager</a>
+      <a href="#offer" data-i18n="nav.offer">Что вы получаете</a>
+      <a href="#faq" data-i18n="nav.faq">Вопросы</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+    <div class="top__right">
+      <div class="lang" role="group" aria-label="Язык / Til / Language">
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="uz">UZ</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <a class="btn btn--primary btn--sm hide-sm" href="#contact" data-i18n="cta.request">Оставить заявку</a>
+      <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Первый экран ===== -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__in">
+    <div class="hero__text">
+      <p class="pill" data-i18n="hero.badge">Программа для гостиниц Узбекистана</p>
+      <h1 data-i18n="hero.title">Вся гостиница — в одной программе</h1>
+      <p class="hero__lead" data-i18n="hero.lead">Шахматка номеров, регистрация гостей, оплаты по суткам и долги, смены, касса и отчёты. Директор видит всё в Telegram — даже из дома.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#contact" data-i18n="hero.cta1">Бесплатная демонстрация</a>
+        <a class="btn btn--ghost" href="https://t.me/pan1ka0" target="_blank" rel="noopener">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>
+          <span data-i18n="hero.cta2">Написать в Telegram</span>
+        </a>
+      </div>
+      <ul class="hero__points">
+        <li data-i18n="hero.p1">Данные хранятся у вас на компьютере</li>
+        <li data-i18n="hero.p2">Русский, узбекский и английский</li>
+        <li data-i18n="hero.p3">Бесплатные обновления</li>
+      </ul>
+    </div>
+    <figure class="hero__shot">
+      <div class="window">
+        <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i><span>INNLYRA</span></div>
+        <img src="img/chess_timeline.webp" width="1680" height="960" alt="Шахматка номеров в INNLYRA" data-i18n-alt="alt.timeline">
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== Возможности ===== -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-i18n="nav.features">Возможности</p>
+      <h2 data-i18n="f.title">Всё, что нужно ресепшену и директору</h2>
+      <p class="head__sub" data-i18n="f.sub">Каждая функция сделана по реальным задачам гостиницы.</p>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">▦</div>
+        <h3 data-i18n="f1.t">Шахматка номеров</h3>
+        <p data-i18n="f1.d">Все номера и дни на одном экране: проживающие, брони, уборки и долги. Два вида — «Ленты» и «Клетки», масштаб, двойной щелчок открывает карточку гостя.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">👤</div>
+        <h3 data-i18n="f2.t">Регистрация и база гостей</h3>
+        <p data-i18n="f2.d">Паспортные данные, несколько гостей в номере, ранний заезд и поздний выезд. База гостей по паспорту — история всех визитов и оплат.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">💳</div>
+        <h3 data-i18n="f3.t">Оплаты и долги по суткам</h3>
+        <p data-i18n="f3.d">Расчётный час 12:00 — сутки и долг считаются сами. Таблица «Оплата по суткам» показывает, что оплачено, а что нет. Наличные, Uzcard, Humo, Click, Visa, безнал.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">🔐</div>
+        <h3 data-i18n="f4.t">Смены и касса</h3>
+        <p data-i18n="f4.d">Закрытие смены в один клик: передача кассы или инкассация, расходы из кассы и готовые PDF-отчёты «Cash», «Терминал» и «Мини Бар».</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">📨</div>
+        <h3 data-i18n="f6.t">Брони и заявки с сайтов</h3>
+        <p data-i18n="f6.d">Бронирование с проверкой занятости. Заявки с Booking.com и других сайтов (через Channex или почту) и от гостей через ваш Telegram-бот.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">📱</div>
+        <h3 data-i18n="f7.t">Директор в Telegram</h3>
+        <p data-i18n="f7.d">Бот присылает каждую оплату, загрузку утром и вечером, итоги и PDF-отчёты смены. Кабинет директора в Telegram — шахматка, гости и финансы прямо с телефона.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">📊</div>
+        <h3 data-i18n="f8.t">Финансы и отчёты</h3>
+        <p data-i18n="f8.d">Выручка, загрузка в процентах, средняя цена за сутки, графики. Выгрузка в Excel и автоматическая отправка оплат в Google Таблицы.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">🥤</div>
+        <h3 data-i18n="f5.t">Мини-бар и доп. услуги</h3>
+        <p data-i18n="f5.d">Прайс-лист услуг от директора, остатки мини-бара по сменам, продажа в долг — сразу в счёт гостя.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">🧾</div>
+        <h3 data-i18n="f9.t">Квитанции</h3>
+        <p data-i18n="f9.d">Квитанция с реквизитами гостиницы — печать или PDF за пару секунд.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">👥</div>
+        <h3 data-i18n="f10.t">Права и журнал действий</h3>
+        <p data-i18n="f10.d">Роли «Администратор», «Бухгалтерия», «Директор». Важные действия — только директору. Журнал записывает каждое действие, и изменить его нельзя.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">⚙</div>
+        <h3 data-i18n="f11.t">Работает сама</h3>
+        <p data-i18n="f11.d">Автовыселение после расчётного часа (должника не выселяет), уборки закрываются сами, база каждый день копируется автоматически.</p>
+      </article>
+      <article class="card">
+        <div class="card__ico" aria-hidden="true">🔄</div>
+        <h3 data-i18n="f12.t">Обновления</h3>
+        <p data-i18n="f12.d">Новые версии приходят сами и ставятся одной кнопкой — с проверкой цифровой подписи.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Скриншоты ===== -->
+<section class="section section--tint" id="screens">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow" data-i18n="nav.screens">Скриншоты</p>
+      <h2 data-i18n="s.title">Посмотрите, как это выглядит</h2>
+      <p class="head__sub" data-i18n="s.sub">Снимки настоящей программы. Гости и суммы — вымышленные.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Скриншоты">
+      <button type="button" role="tab" aria-selected="true" data-shot="dashboard" data-i18n="s.t1">Главная</button>
+      <button type="button" role="tab" aria-selected="false" data-shot="chess_timeline" data-i18n="s.t2">Шахматка: ленты</button>
+      <button type="button" role="tab" aria-selected="false" data-shot="chess_cells" data-i18n="s.t3">Шахматка: клетки</button>
+      <button type="button" role="tab" aria-selected="false" data-shot="card" data-i18n="s.t4">Карточка гостя</button>
+      <button type="button" role="tab" aria-selected="false" data-shot="finance" data-i18n="s.t5">Финансы</button>
+      <button type="button" role="tab" aria-selected="false" data-shot="reports" data-i18n="s.t6">Отчёты</button>
+    </div>
+    <figure class="viewer">
+      <button type="button" class="window window--btn" id="shotOpen" aria-label="Открыть крупно">
+        <span class="window__bar" aria-hidden="true"><i></i><i></i><i></i><span>INNLYRA</span></span>
+        <img id="shotImg" src="img/dashboard.webp" width="1680" height="960" alt="Главная INNLYRA" loading="lazy">
+      </button>
+      <figcaption id="shotCap" data-i18n="s.c1">Главная: заезды и выезды на сегодня, свободные номера, уборки, загрузка и должники.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ===== Директор в Telegram ===== -->
+<section class="section" id="director">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow" data-i18n="d.eyebrow">Для директора</p>
+      <h2 data-i18n="d.title">Гостиница под контролем — даже из дома</h2>
+      <ul class="checks">
+        <li data-i18n="d.l1">Каждая оплата — сообщением: кто оплатил, номер, сумма, чья смена.</li>
+        <li data-i18n="d.l2">Загрузка гостиницы в 07:00 и 22:00 — в чат гостиницы.</li>
+        <li data-i18n="d.l3">При закрытии смены — 3 PDF-отчёта в ваш канал.</li>
+        <li data-i18n="d.l4">Кабинет директора в Telegram: шахматка, гости, финансы, журнал.</li>
+        <li data-i18n="d.l5">Исправить или отменить оплату может только директор — и только с причиной.</li>
+      </ul>
+    </div>
+    <div class="phone" aria-hidden="true">
+      <div class="phone__head"><img src="img/logo_96.png" alt="" width="34" height="34"><div><b>INNLYRA</b><small data-i18n="d.bot">бот директора</small></div></div>
+      <div class="phone__body">
+        <div class="msg">
+          <b data-i18n="d.m1a">💰 Оплата 600 000</b>
+          <span data-i18n="d.m1b">👤 Оплатил: Smith John</span>
+          <span data-i18n="d.m1c">🛏 Номер: 102</span>
+          <span data-i18n="d.m1d">💳 Чем: Наличные</span>
+          <span data-i18n="d.m1e">🧑‍💼 Смена: дневная</span>
+          <time>14:05</time>
+        </div>
+        <div class="msg">
+          <b data-i18n="d.m2a">📊 Загрузка на сегодня</b>
+          <span data-i18n="d.m2b">Занято: 8 из 14 · Бронь: 2 · Свободно: 4</span>
+          <time>07:00</time>
+        </div>
+        <div class="msg msg--file">
+          <span class="file">PDF</span>
+          <span><b data-i18n="d.m3a">Отчет Cash</b><small data-i18n="d.m3b">Итоги закрытой смены</small></span>
+          <time>20:01</time>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Этап 2: менеджер каналов (скоро) ===== -->
+<section class="section section--tint" id="channels">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><span class="soon" data-i18n="cm.soon">Скоро</span> <span data-i18n="cm.eyebrow">Следующий этап</span></p>
+      <h2>INNLYRA Channel Manager</h2>
+      <p class="head__sub" data-i18n="cm.sub">Продавайте номера на всех сайтах бронирования из одного окна. Цены и наличие синхронизируются сами, а брони со всех площадок собираются в одном месте — без овербукинга.</p>
+    </div>
+    <div class="cm">
+      <div class="cm__list">
+        <div class="cm__item"><b data-i18n="cm1.t">📅 Календарь цен и наличия</b><p data-i18n="cm1.d">Цены, свободные номера, минимум ночей и стоп-продажа по дням — с массовым обновлением на месяцы вперёд.</p></div>
+        <div class="cm__item"><b data-i18n="cm2.t">🔄 Синхронизация с площадками</b><p data-i18n="cm2.d">Бронь с одного сайта сразу уменьшает наличие на всех остальных.</p></div>
+        <div class="cm__item"><b data-i18n="cm3.t">🧾 Все брони в одном списке</b><p data-i18n="cm3.d">Новые, изменённые и отменённые брони со всех сайтов, история изменений.</p></div>
+        <div class="cm__item"><b data-i18n="cm4.t">🛏 Модуль бронирования для сайта</b><p data-i18n="cm4.d">Гости бронируют прямо на сайте гостиницы — без комиссии площадкам.</p></div>
+        <div class="cm__item"><b data-i18n="cm5.t">💬 Сообщения и отзывы</b><p data-i18n="cm5.d">Переписка с гостями и отзывы с площадок — в одном месте, с ответами из кабинета.</p></div>
+        <div class="cm__item"><b data-i18n="cm6.t">📈 Аналитика и API</b><p data-i18n="cm6.d">Загрузка, ADR, RevPAR, доля каналов и комиссии; открытый API и вебхуки для своих систем.</p></div>
+      </div>
+      <div class="cm__side">
+        <p class="cm__label" data-i18n="cm.ota">Площадки, которые планируем подключить</p>
+        <div class="otas">
+          <span>Booking.com</span><span>Airbnb</span><span>Expedia</span><span>Agoda</span><span>Trip.com</span>
+          <span>Ostrovok</span><span data-i18n="cm.yandex">Яндекс Путешествия</span><span>Google Hotel Ads</span><span>Vrbo</span><span>Hostelworld</span>
+        </div>
+        <p class="cm__note" data-i18n="cm.note">Площадки подключаются по мере получения официального доступа к их системам. Запишитесь — сообщим о запуске первыми.</p>
+        <a class="btn btn--primary btn--wide" href="#contact" data-topic="channels" data-i18n="cm.btn">Записаться в список ожидания</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Что вы получаете ===== -->
+<section class="section section--dark" id="offer">
+  <div class="wrap">
+    <div class="head head--light">
+      <p class="eyebrow" data-i18n="nav.offer">Что вы получаете</p>
+      <h2 data-i18n="o.title">Не просто программа — мы рядом</h2>
+    </div>
+    <div class="offer">
+      <div class="offer__item"><span class="num">01</span><h3 data-i18n="o1.t">Бесплатная демонстрация</h3><p data-i18n="o1.d">Покажем программу до покупки и ответим на все вопросы.</p></div>
+      <div class="offer__item"><span class="num">02</span><h3 data-i18n="o2.t">Установка и обучение</h3><p data-i18n="o2.d">Установим на компьютер ресепшена, заведём номера и научим сотрудников.</p></div>
+      <div class="offer__item"><span class="num">03</span><h3 data-i18n="o3.t">Бесплатные обновления</h3><p data-i18n="o3.d">Новые возможности приходят сами, без доплат.</p></div>
+      <div class="offer__item"><span class="num">04</span><h3 data-i18n="o4.t">Техподдержка</h3><p data-i18n="o4.d">Отвечаем в Telegram и по почте.</p></div>
+    </div>
+    <div class="price">
+      <div>
+        <p class="price__label" data-i18n="p.label">Стоимость</p>
+        <p class="price__value" data-i18n="p.value">По запросу</p>
+        <p class="price__text" data-i18n="p.text">Оставьте заявку — расскажем о цене и условиях для вашей гостиницы.</p>
+      </div>
+      <a class="btn btn--primary" href="#contact" data-i18n="p.btn">Узнать цену</a>
+    </div>
+    <p class="extra"><span class="extra__tag" data-i18n="x.tag">Дополнительно</span> <span data-i18n="x.text">Создание и обновление сайта для вашей гостиницы — за отдельную плату.</span></p>
+  </div>
+</section>
+
+<!-- ===== Вопросы ===== -->
+<section class="section" id="faq">
+  <div class="wrap wrap--narrow">
+    <div class="head">
+      <p class="eyebrow" data-i18n="nav.faq">Вопросы</p>
+      <h2 data-i18n="q.title">Частые вопросы</h2>
+    </div>
+    <div class="faq">
+      <details><summary data-i18n="q1.q">Нужен ли постоянный интернет?</summary><p data-i18n="q1.a">Нет. Программа работает на компьютере, база хранится у вас. Интернет нужен только для Telegram-ботов, Google Таблиц, заявок с сайтов и обновлений.</p></details>
+      <details><summary data-i18n="q2.q">Какой нужен компьютер?</summary><p data-i18n="q2.a">Обычный компьютер или ноутбук с Windows 10 или 11.</p></details>
+      <details><summary data-i18n="q3.q">На каких языках работает программа?</summary><p data-i18n="q3.a">Русский, узбекский (латиница) и английский. Язык можно сменить в настройках в любой момент.</p></details>
+      <details><summary data-i18n="q4.q">Может ли директор смотреть из дома?</summary><p data-i18n="q4.a">Да. Через Telegram-бот и кабинет директора в Telegram, а также в режиме просмотра на домашнем компьютере.</p></details>
+      <details><summary data-i18n="q5.q">Данные в безопасности?</summary><p data-i18n="q5.a">Каждый сотрудник входит под своим паролем и видит только то, что разрешено его роли. База копируется автоматически каждый день, а журнал действий изменить нельзя.</p></details>
+      <details><summary data-i18n="q6.q">Работает ли с Booking.com?</summary><p data-i18n="q6.a">Да: заявки приходят через менеджер каналов Channex или из писем сайтов на вашу почту. Ресепшен подтверждает их одной кнопкой.</p></details>
+      <details><summary data-i18n="q7.q">Сложно ли научиться?</summary><p data-i18n="q7.a">Нет. Интерфейс простой, а установку и обучение сотрудников мы берём на себя.</p></details>
+      <details><summary data-i18n="q8.q">Сколько стоит?</summary><p data-i18n="q8.a">Стоимость — по запросу. Оставьте заявку, и мы расскажем о цене и условиях.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Заявка и контакты ===== -->
+<section class="section section--tint" id="contact">
+  <div class="wrap split split--form">
+    <div>
+      <p class="eyebrow" data-i18n="nav.contact">Контакты</p>
+      <h2 data-i18n="c.title">Оставьте заявку</h2>
+      <p class="head__sub" data-i18n="c.sub">Заполните форму — мы свяжемся с вами, покажем программу и расскажем о цене.</p>
+      <div class="contacts">
+        <a class="contact" href="https://t.me/pan1ka0" target="_blank" rel="noopener">
+          <span class="contact__ico contact__ico--tg"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></span>
+          <span><small>Telegram</small><b>@pan1ka0</b></span>
+        </a>
+        <a class="contact" href="mailto:support.innlyra@gmail.com">
+          <span class="contact__ico"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4 7v10h16V7l-8 5.2z"/></svg></span>
+          <span><small data-i18n="c.mail">Почта</small><b>support.innlyra@gmail.com</b></span>
+        </a>
+      </div>
+    </div>
+    <form class="form" id="leadForm" novalidate>
+      <div class="row">
+        <label><span><span data-i18n="c.name">Ваше имя</span> *</span><input name="name" required autocomplete="name" maxlength="80"></label>
+        <label><span><span data-i18n="c.phone">Телефон</span> *</span><input name="phone" type="tel" required autocomplete="tel" placeholder="+998 __ ___ __ __" maxlength="30"></label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="c.hotel">Гостиница</span><input name="hotel" maxlength="100"></label>
+        <label><span data-i18n="c.city">Город</span><input name="city" maxlength="60"></label>
+      </div>
+      <div class="row">
+        <label><span data-i18n="c.rooms">Количество номеров</span><input name="rooms" type="number" min="1" max="2000" inputmode="numeric"></label>
+        <label><span data-i18n="c.topic">Что вас интересует</span>
+          <select name="topic">
+            <option value="demo" data-i18n="c.topic1">Бесплатная демонстрация</option>
+            <option value="price" data-i18n="c.topic2">Узнать цену</option>
+            <option value="channels" data-i18n="c.topic5">Channel Manager — список ожидания</option>
+            <option value="site" data-i18n="c.topic4">Сайт для гостиницы</option>
+            <option value="question" data-i18n="c.topic3">Другой вопрос</option>
+          </select>
+        </label>
+      </div>
+      <label><span data-i18n="c.msg">Сообщение</span><textarea name="message" rows="4" maxlength="2000"></textarea></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn btn--primary btn--wide" type="submit" id="leadBtn" data-i18n="c.send">Отправить заявку</button>
+      <p class="form__status" id="leadStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="brand brand--foot"><img src="img/logo_96.png" alt="" width="32" height="32"><span class="brand__name">INNLYRA</span></div>
+    <p>© 2026 <a href="https://github.com/pan1ka0" target="_blank" rel="noopener">pan1ka0</a>. <span data-i18n="foot.rights">Все права защищены.</span></p>
+    <p><a href="https://t.me/pan1ka0" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:support.innlyra@gmail.com">support.innlyra@gmail.com</a></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button type="button" class="lightbox__close" id="lbClose" aria-label="Закрыть">×</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
