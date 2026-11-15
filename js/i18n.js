@@ -49,7 +49,7 @@ window.I18N = {
     "reg.title": "Ro‘yxatdan o‘tish 1 daqiqa oladi",
     "reg.text": "Bepul va hech narsaga majburlamaydi. Ro‘yxatdan o‘tgach, ariza darhol bizga keladi.",
 
-    "hero.badge": "O‘zbekiston mehmonxonalari uchun dastur",
+    "hero.badge": "Mehmonxonalar uchun dastur",
     "hero.title": "Butun mehmonxona — bitta dasturda",
     "hero.lead": "Xonalar shaxmatkasi, mehmonlarni ro‘yxatga olish, kunlik to‘lovlar va qarzlar, smenalar, kassa va hisobotlar. Direktor hammasini Telegramda ko‘radi — hatto uydan ham.",
     "hero.cta1": "Bepul namoyish",
@@ -224,7 +224,7 @@ window.I18N = {
     "reg.title": "Signing up takes 1 minute",
     "reg.text": "Free and with no obligation. Once you sign up, your request reaches us right away.",
 
-    "hero.badge": "Hotel software made for Uzbekistan",
+    "hero.badge": "Software for hotels",
     "hero.title": "Your whole hotel in one program",
     "hero.lead": "Room chart, guest registration, nightly payments and debts, shifts, cash desk and reports. The director sees everything in Telegram — even from home.",
     "hero.cta1": "Free demo",
