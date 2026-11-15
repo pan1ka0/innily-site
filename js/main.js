@@ -38,7 +38,7 @@
     // ссылки на кабинет (app.innily.com) открывают его на том же языке;
     // пока кабинет не опубликован (APP_READY = false) — ведут к форме заявки на этой странице
     document.querySelectorAll("[data-app]").forEach(function (a) {
-      a.href = APP_READY ? "https://app.innily.com/" + a.getAttribute("data-app") + "?lang=" + lang : "#contact";
+      a.href = APP_READY ? "https://app.innily.com/" + a.getAttribute("data-app") + "?lang=" + lang : "#top";
     });
     if (save) store("innlyra_lang", lang);
   }
