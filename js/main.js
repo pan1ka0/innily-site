@@ -3,6 +3,7 @@
   "use strict";
   var FORM_URL = "https://formsubmit.co/ajax/support@innily.com"; // заявки приходят на эту почту
   var LANGS = ["ru", "uz", "en"];
+  var APP_READY = false;   // true — когда кабинет app.innily.com опубликован (cabinet/, wrangler deploy)
   var DICT = window.I18N || {};
   var lang = "ru";
 
@@ -35,6 +36,11 @@
       b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
     });
     showShot(current, true);
+    // ссылки на кабинет (app.innily.com) открывают его на том же языке;
+    // пока кабинет не опубликован (APP_READY = false) — ведут к форме заявки на этой странице
+    document.querySelectorAll("[data-app]").forEach(function (a) {
+      a.href = APP_READY ? "https://app.innily.com/" + a.getAttribute("data-app") + "?lang=" + lang : "#contact";
+    });
     if (save) store("innlyra_lang", lang);
   }
 
@@ -155,15 +161,103 @@
     });
   });
 
-  // ---------- появление блоков при прокрутке ----------
+  // ---------- анимации ----------
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // полоса прогресса прокрутки и «плотная» шапка
+  var bar = document.getElementById("progress");
+  var top = document.getElementById("top");
+  var ticking = false;
+  function onScroll() {
+    ticking = false;
+    var h = document.documentElement.scrollHeight - innerHeight;
+    if (bar) bar.style.transform = "scaleX(" + (h > 0 ? Math.min(1, scrollY / h) : 0) + ")";
+    if (top) top.classList.toggle("scrolled", scrollY > 20);
+  }
+  addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  // партнёры: бегущая строка — вторая копия списка для бесконечной ленты
+  var plist = document.getElementById("partnersList");
+  if (plist && !calm) {
+    Array.prototype.slice.call(plist.children).forEach(function (li) {
+      var c = li.cloneNode(true);
+      c.setAttribute("aria-hidden", "true");
+      c.querySelectorAll("img").forEach(function (im) { im.alt = ""; });
+      plist.appendChild(c);
+    });
+  }
+
+  // счётчики цифр (от 0 до data-to, когда блок виден)
+  function countUp(el) {
+    var to = +el.getAttribute("data-to") || 0, t0 = null, dur = 1400;
+    if (calm) { el.textContent = to; return; }
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * e);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    el.textContent = "0";
+    requestAnimationFrame(step);
+  }
+
+  // появление при прокрутке: по очереди внутри одного ряда
+  var groups = [
+    [".grid .card", ""], [".offer__item", ""], [".faq details", ""], [".cm__item", ""],
+    [".viewer", "reveal--left"], [".phone", "reveal--right"], [".price", "reveal--zoom"], [".head", ""],
+    [".split > div", ""], [".reg-box", "reveal--zoom"], [".form", "reveal--right"], [".stat", ""]
+  ];
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+        if (!en.isIntersecting) return;
+        en.target.classList.add("in");
+        en.target.querySelectorAll(".count").forEach(countUp);
+        io.unobserve(en.target);
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".card, .offer__item, .faq details, .cm__item, .viewer, .phone, .price")
-      .forEach(function (el) { el.classList.add("reveal"); io.observe(el); });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    groups.forEach(function (g) {
+      document.querySelectorAll(g[0]).forEach(function (el, i) {
+        if (el.classList.contains("reveal")) return;
+        el.classList.add("reveal");
+        if (g[1]) el.classList.add(g[1]);
+        el.style.setProperty("--d", (Math.min(i, 6) * 0.08) + "s");
+        io.observe(el);
+      });
+    });
+  } else {
+    document.querySelectorAll(".count").forEach(countUp);
+  }
+
+  // скриншот на первом экране поворачивается за мышью
+  var win = document.getElementById("heroWindow");
+  var hero = document.querySelector(".hero");
+  if (win && hero && !calm && window.matchMedia("(hover: hover) and (min-width: 901px)").matches) {
+    hero.addEventListener("mousemove", function (e) {
+      var r = hero.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      win.style.setProperty("--ry", (-6 + x * 8).toFixed(2) + "deg");
+      win.style.setProperty("--rx", (2 - y * 6).toFixed(2) + "deg");
+    });
+    hero.addEventListener("mouseleave", function () { win.style.removeProperty("--ry"); win.style.removeProperty("--rx"); });
+  }
+
+  // «живые» события поверх скриншота — по очереди, на текущем языке
+  var lives = document.querySelectorAll(".live");
+  if (lives.length) {
+    var li = 0, slot = 0;
+    var showLive = function () {
+      var el = lives[slot % lives.length];
+      el.classList.remove("show");
+      setTimeout(function () {
+        el.querySelector(".live__text").textContent = tr("live." + (li % 6 + 1));
+        el.classList.add("show");
+        li++; slot++;
+      }, calm ? 0 : 450);
+    };
+    setTimeout(function () { showLive(); setTimeout(showLive, 900); }, calm ? 0 : 1300);
+    if (!calm) setInterval(showLive, 3200);
   }
 
   // ---------- стартовый язык: ?lang=uz → сохранённый → язык браузера ----------

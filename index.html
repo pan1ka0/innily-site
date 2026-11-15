@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="top" id="top">
   <div class="wrap top__in">
@@ -35,6 +36,8 @@
       <a href="#offer" data-i18n="nav.offer">Что вы получаете</a>
       <a href="#faq" data-i18n="nav.faq">Вопросы</a>
       <a href="#contact" data-i18n="nav.contact">Контакты</a>
+      <a class="show-sm" href="https://app.innily.com/register" data-app="register" data-i18n="cta.register">Регистрация</a>
+      <a class="show-sm" href="https://app.innily.com/login" data-app="login" data-i18n="cta.login">Войти</a>
     </nav>
     <div class="top__right">
       <div class="lang" role="group" aria-label="Язык / Til / Language">
@@ -42,7 +45,8 @@
         <button type="button" data-lang="uz">UZ</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <a class="btn btn--primary btn--sm hide-sm" href="#contact" data-i18n="cta.request">Оставить заявку</a>
+      <a class="login-link hide-sm" href="https://app.innily.com/login" data-app="login" data-i18n="cta.login">Войти</a>
+      <a class="btn btn--primary btn--sm hide-sm" href="https://app.innily.com/register" data-app="register" data-i18n="cta.register">Регистрация</a>
       <button class="burger" type="button" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="menu">
         <span></span><span></span><span></span>
       </button>
@@ -55,13 +59,17 @@
 <!-- ===== Первый экран ===== -->
 <section class="hero">
   <div class="hero__glow" aria-hidden="true"></div>
+  <div class="blob blob--1" aria-hidden="true"></div>
+  <div class="blob blob--2" aria-hidden="true"></div>
+  <div class="blob blob--3" aria-hidden="true"></div>
+  <div class="hero__grid" aria-hidden="true"></div>
   <div class="wrap hero__in">
     <div class="hero__text">
       <p class="pill" data-i18n="hero.badge">Программа для гостиниц Узбекистана</p>
       <h1 data-i18n="hero.title">Вся гостиница — в одной программе</h1>
       <p class="hero__lead" data-i18n="hero.lead">Шахматка номеров, регистрация гостей, оплаты по суткам и долги, смены, касса и отчёты. Директор видит всё в Telegram — даже из дома.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#contact" data-i18n="hero.cta1">Бесплатная демонстрация</a>
+        <a class="btn btn--primary" href="https://app.innily.com/register" data-app="register" data-i18n="hero.cta1">Бесплатная демонстрация</a>
         <a class="btn btn--ghost" href="https://t.me/pan1ka0" target="_blank" rel="noopener">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>
           <span data-i18n="hero.cta2">Написать в Telegram</span>
@@ -74,11 +82,24 @@
       </ul>
     </div>
     <figure class="hero__shot">
-      <div class="window">
+      <div class="window" id="heroWindow">
         <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i><span>INNILY</span></div>
         <img src="img/chess_timeline.webp" width="1680" height="960" alt="Шахматка номеров в INNILY" data-i18n-alt="alt.timeline">
       </div>
+      <!-- «живые» события поверх скриншота (тексты — в js/i18n.js, live.1…live.6) -->
+      <div class="live live--a" aria-hidden="true"><span class="live__dot"></span><span class="live__text"></span></div>
+      <div class="live live--b" aria-hidden="true"><span class="live__dot"></span><span class="live__text"></span></div>
     </figure>
+  </div>
+</section>
+
+<!-- ===== Цифры ===== -->
+<section class="stats" aria-label="INNILY в цифрах">
+  <div class="wrap stats__in">
+    <div class="stat"><b><span class="count" data-to="3">3</span></b><span data-i18n="st.1">языка интерфейса</span></div>
+    <div class="stat"><b><span class="count" data-to="6">6</span></b><span data-i18n="st.2">видов оплаты: наличные, Uzcard, Humo, Click, Visa, безнал</span></div>
+    <div class="stat"><b><span class="count" data-to="3">3</span> PDF</b><span data-i18n="st.3">отчёта при закрытии смены</span></div>
+    <div class="stat"><b><span class="count" data-to="100">100</span>%</b><span data-i18n="st.4">данных — на вашем компьютере</span></div>
   </div>
 </section>
 
@@ -283,7 +304,8 @@
       <p class="eyebrow" data-i18n="pt.eyebrow">Партнёры</p>
       <h2 data-i18n="pt.title">Нам доверяют</h2>
     </div>
-    <ul class="partners">
+    <div class="marquee">
+    <ul class="partners" id="partnersList">
       <li class="partner"><img src="img/partners/temurkhan.webp" width="189" height="160" alt="Hotel Temurkhan" loading="lazy"><span>Hotel Temurkhan</span></li>
       <li class="partner"><span class="plogo plogo--tourist" aria-hidden="true"><b>TOURIST INN</b><small>HOTEL · TASHKENT</small></span><span>Hotel Tourist Inn</span></li>
       <li class="partner"><img src="img/partners/enjoytour.webp" width="334" height="160" alt="Enjoy Tour" loading="lazy"><span>Enjoy Tour</span></li>
@@ -292,6 +314,7 @@
       <li class="partner"><span class="plogo plogo--noiz" aria-hidden="true"><b>N<i>Ø</i>IZ</b><small>MEDIA</small></span><span>NoizMedia</span></li>
       <li class="partner"><img src="img/partners/ilmora.webp" width="347" height="160" alt="Ilmora" loading="lazy"><span>Ilmora</span></li>
     </ul>
+    </div>
   </div>
 </section>
 
@@ -322,6 +345,10 @@
       <p class="eyebrow" data-i18n="nav.contact">Контакты</p>
       <h2 data-i18n="c.title">Оставьте заявку</h2>
       <p class="head__sub" data-i18n="c.sub">Заполните форму — мы свяжемся с вами, покажем программу и расскажем о цене.</p>
+      <div class="reg-box">
+        <p><b data-i18n="reg.title">Зарегистрируйтесь в кабинете INNILY</b><br><span data-i18n="reg.text">Укажите, как вам удобнее: WhatsApp, Telegram, почта или звонок — мы свяжемся и покажем программу.</span></p>
+        <a class="btn btn--primary" href="https://app.innily.com/register" data-app="register" data-i18n="cta.register">Регистрация</a>
+      </div>
       <div class="contacts">
         <a class="contact" href="https://t.me/pan1ka0" target="_blank" rel="noopener">
           <span class="contact__ico contact__ico--tg"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.2 1.8 11.7c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></span>
@@ -358,6 +385,7 @@
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn--primary btn--wide" type="submit" id="leadBtn" data-i18n="c.send">Отправить заявку</button>
       <p class="form__status" id="leadStatus" role="status" aria-live="polite"></p>
+      <p class="form__consent"><span data-i18n="c.consent">Отправляя форму, вы соглашаетесь на обработку персональных данных согласно</span> <a href="privacy.html" data-i18n="c.consent_link">политике конфиденциальности</a>.</p>
     </form>
   </div>
 </section>
@@ -368,6 +396,7 @@
   <div class="wrap foot__in">
     <div class="brand brand--foot"><img src="img/logo_96.png" alt="" width="32" height="32"><span class="brand__name">INNILY</span></div>
     <p>© 2026 <a href="https://github.com/pan1ka0" target="_blank" rel="noopener">pan1ka0</a>. <span data-i18n="foot.rights">Все права защищены.</span></p>
+    <p><a href="oferta.html" data-i18n="foot.offer">Публичная оферта</a> · <a href="privacy.html" data-i18n="foot.privacy">Персональные данные и конфиденциальность</a></p>
     <p><a href="https://t.me/pan1ka0" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:support@innily.com">support@innily.com</a></p>
   </div>
 </footer>
