@@ -212,6 +212,29 @@ p { margin: 0; }
 .extra__tag { display: inline-block; font-size: 12px; font-weight: 800; color: var(--brand); background: var(--brand-sub); border-radius: 6px; padding: 3px 8px; margin-right: 6px; }
 
 /* вопросы */
+/* Партнёры */
+.partners { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.partner { flex: 0 1 calc((100% - 60px) / 4); min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 14px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 18px 18px; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.partner:hover { border-color: #c9b8ee; box-shadow: var(--shadow); transform: translateY(-2px); }
+.partner > img, .plogo { height: 72px; }
+.partner > img { width: auto; max-width: 100%; object-fit: contain; }
+.partner > span:last-child { font-size: 14px; font-weight: 700; color: var(--muted); text-align: center; }
+.plogo { display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; white-space: nowrap; }
+.plogo--tourist { background: #0f5a40; color: #fff; border: 1px solid #c9a54c; outline: 1px solid #0f5a40; padding: 0 18px; gap: 7px; }
+.plogo--tourist b { font: 700 24px/1 var(--serif); letter-spacing: .08em; }
+.plogo--tourist small { font-size: 9px; font-weight: 700; letter-spacing: .3em; color: #e8d49a; }
+.plogo--savdex { flex-direction: row; gap: 10px; font-size: 28px; font-weight: 800; color: #16255e; letter-spacing: -.01em; }
+.plogo--savdex img { width: 48px; height: 48px; }
+.plogo--noiz { background: #0d0c12; border-radius: 12px; padding: 0 22px; gap: 6px; }
+.plogo--noiz b { font-size: 30px; font-weight: 800; letter-spacing: -.02em; background: linear-gradient(120deg, #f6b5cd 0%, #cdbcf0 50%, #9cc7f2 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.plogo--noiz i { font-style: normal; }
+.plogo--noiz small { font-size: 9px; font-weight: 700; letter-spacing: .32em; color: #a3a398; }
+@media (max-width: 900px) { .partner { flex-basis: calc((100% - 40px) / 3); } }
+@media (max-width: 640px) { .partners { gap: 12px; } .partner { flex-basis: calc((100% - 12px) / 2); padding: 20px 12px 14px; } .partner > img, .plogo { height: 56px; }
+  .plogo--tourist { padding: 0 10px; } .plogo--tourist b { font-size: 16px; letter-spacing: .04em; } .plogo--tourist small { font-size: 7px; letter-spacing: .2em; } .plogo--savdex { font-size: 22px; } .plogo--noiz b { font-size: 24px; } }
+
 .faq { display: grid; gap: 12px; }
 .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; transition: border-color .2s, box-shadow .2s; }
 .faq details[open] { border-color: #c9b8ee; box-shadow: var(--shadow); }

@@ -131,6 +131,8 @@ window.I18N = {
     "x.tag": "Qo‘shimcha",
     "x.text": "Mehmonxonangiz uchun sayt yaratish va yangilash — alohida to‘lov evaziga.",
 
+    "pt.eyebrow": "Hamkorlar",
+    "pt.title": "Bizga ishonishadi",
     "q.title": "Ko‘p beriladigan savollar",
     "q1.q": "Doimiy internet kerakmi?",
     "q1.a": "Yo‘q. Dastur kompyuterda ishlaydi, baza sizda saqlanadi. Internet faqat Telegram-botlar, Google Jadvallar, saytlardan arizalar va yangilanishlar uchun kerak.",
@@ -286,6 +288,8 @@ window.I18N = {
     "x.tag": "Also",
     "x.text": "Building and updating a website for your hotel — for an extra fee.",
 
+    "pt.eyebrow": "Partners",
+    "pt.title": "Trusted by",
     "q.title": "Frequently asked questions",
     "q1.q": "Do I need a constant internet connection?",
     "q1.a": "No. The program runs on your computer and the database is stored locally. Internet is only needed for Telegram bots, Google Sheets, online booking requests and updates.",
