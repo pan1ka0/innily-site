@@ -1,4 +1,4 @@
-// INNLYRA — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
+// INNILY — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
 (function () {
   "use strict";
   var FORM_URL = "https://formsubmit.co/ajax/support.innlyra@gmail.com"; // заявки приходят на эту почту
@@ -131,7 +131,7 @@
       "Интересует": topicText,
       "Сообщение": form.message.value.trim(),
       "Язык сайта": lang.toUpperCase(),
-      _subject: "INNLYRA: новая заявка — " + topicText + (form.hotel.value.trim() ? " (" + form.hotel.value.trim() + ")" : ""),
+      _subject: "INNILY: новая заявка — " + topicText + (form.hotel.value.trim() ? " (" + form.hotel.value.trim() + ")" : ""),
       _template: "table",
       _captcha: "false"
     };

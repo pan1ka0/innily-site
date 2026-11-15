@@ -1,4 +1,4 @@
-// INNLYRA — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
+// INNILY — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
 // Переводы сайта. Русский текст берётся из самой страницы (index.html); здесь — узбекский (латиница) и английский.
 // Ключи «s.c1…s.c6» и «alt.*» используются скриптом (подписи скриншотов).
 window.I18N = {
@@ -9,15 +9,15 @@ window.I18N = {
     "s.c4": "Карточка гостя: все проживающие, даты, продление в один клик и оплата по суткам.",
     "s.c5": "Финансы: все оплаты с итогами по видам, выгрузка в Excel и Google Таблицы.",
     "s.c6": "Отчёты: выручка, загрузка, средняя цена за сутки и выручка по видам оплаты.",
-    "alt.timeline": "Шахматка номеров в INNLYRA",
+    "alt.timeline": "Шахматка номеров в INNILY",
     "form.sending": "Отправляем…",
     "form.ok": "Спасибо! Заявка отправлена — мы скоро свяжемся с вами.",
     "form.err": "Не удалось отправить. Напишите нам в Telegram или на почту.",
     "form.req": "Заполните имя и телефон.",
-    "title": "INNLYRA — программа для гостиницы"
+    "title": "INNILY — программа для гостиницы"
   },
   uz: {
-    "title": "INNLYRA — mehmonxona uchun dastur",
+    "title": "INNILY — mehmonxona uchun dastur",
     "nav.features": "Imkoniyatlar",
     "nav.screens": "Skrinshotlar",
     "nav.offer": "Nimalar olasiz",
@@ -33,7 +33,7 @@ window.I18N = {
     "hero.p1": "Ma’lumotlar o‘z kompyuteringizda saqlanadi",
     "hero.p2": "Rus, o‘zbek va ingliz tillarida",
     "hero.p3": "Bepul yangilanishlar",
-    "alt.timeline": "INNLYRA dasturidagi xonalar shaxmatkasi",
+    "alt.timeline": "INNILY dasturidagi xonalar shaxmatkasi",
 
     "f.title": "Resepshn va direktorga kerak bo‘lgan hamma narsa",
     "f.sub": "Har bir funksiya mehmonxonaning real vazifalari asosida yaratilgan.",
@@ -174,7 +174,7 @@ window.I18N = {
     "foot.rights": "Barcha huquqlar himoyalangan."
   },
   en: {
-    "title": "INNLYRA — hotel management software",
+    "title": "INNILY — hotel management software",
     "nav.features": "Features",
     "nav.screens": "Screenshots",
     "nav.offer": "What you get",
@@ -190,7 +190,7 @@ window.I18N = {
     "hero.p1": "Your data stays on your computer",
     "hero.p2": "Russian, Uzbek and English",
     "hero.p3": "Free updates",
-    "alt.timeline": "Room chart in INNLYRA",
+    "alt.timeline": "Room chart in INNILY",
 
     "f.title": "Everything reception and the director need",
     "f.sub": "Every feature is built around real hotel workflows.",
