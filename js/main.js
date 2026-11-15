@@ -3,7 +3,7 @@
   "use strict";
   var FORM_URL = "https://formsubmit.co/ajax/support@innily.com"; // заявки приходят на эту почту
   var LANGS = ["ru", "uz", "en"];
-  var APP_READY = false;   // true — когда кабинет app.innily.com опубликован (cabinet/, wrangler deploy)
+  var APP_READY = true;   // true — когда кабинет app.innily.com опубликован (cabinet/, wrangler deploy)
   var DICT = window.I18N || {};
   var lang = "ru";
 
@@ -143,13 +143,19 @@
     };
     btn.disabled = true;
     setStatus(tr("form.sending"));
-    fetch(FORM_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify(data)
-    }).then(function (r) {
+    // кабинет опубликован — заявка идёт в app.innily.com/lead (письмо владельцу + админ-панель), иначе FormSubmit
+    var req = APP_READY ? {
+      url: "https://app.innily.com/lead",
+      opts: { method: "POST", body: new URLSearchParams({
+        name: name, phone: phone, hotel: form.hotel.value.trim(), city: form.city.value.trim(),
+        rooms: form.rooms.value.trim(), topic: topic.value, message: form.message.value.trim(), lang: lang, _honey: "" }) }
+    } : {
+      url: FORM_URL,
+      opts: { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) }
+    };
+    fetch(req.url, req.opts).then(function (r) {
       return r.json().catch(function () { return {}; }).then(function (j) {
-        if (!r.ok || String(j.success) === "false") throw new Error(j.message || r.status);
+        if (!r.ok || String(j.success) === "false" || j.ok === false) throw new Error(j.message || j.error || r.status);
       });
     }).then(function () {
       form.reset();
