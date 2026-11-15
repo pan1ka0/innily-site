@@ -92,6 +92,10 @@ p { margin: 0; }
 .reg-box { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 24px;
   padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .reg-box p { margin: 0; flex: 1; min-width: 220px; color: var(--muted); }
+.head--center { text-align: center; margin-inline: auto; }
+.reg-box--big { padding: 26px 28px; margin-top: 8px; }
+.reg-box--big b { font-size: 18px; }
+.contacts--center { display: flex; justify-content: center; margin-top: 20px; }
 .reg-box b { color: var(--text); }
 .lang { display: flex; background: rgba(255, 255, 255, .06); border: 1px solid rgba(180, 154, 224, .25); border-radius: 10px; padding: 3px; }
 .lang button {

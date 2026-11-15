@@ -1,7 +1,6 @@
 // INNILY — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
 (function () {
   "use strict";
-  var FORM_URL = "https://formsubmit.co/ajax/support@innily.com"; // заявки приходят на эту почту
   var LANGS = ["ru", "uz", "en"];
   var APP_READY = true;   // true — когда кабинет app.innily.com опубликован (cabinet/, wrangler deploy)
   var DICT = window.I18N || {};
@@ -100,72 +99,7 @@
   lb.addEventListener("click", closeLb);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) closeLb(); });
 
-  // ---------- кнопки, которые сразу выбирают тему заявки ----------
-  var topic = document.querySelector("select[name=topic]");
-  document.querySelectorAll("[data-topic]").forEach(function (a) {
-    a.addEventListener("click", function () { topic.value = a.dataset.topic; });
-  });
-  document.querySelectorAll('a[href="#contact"]').forEach(function (a) {
-    if (a.dataset.topic) return;
-    var key = a.getAttribute("data-i18n");
-    if (key === "p.btn") a.addEventListener("click", function () { topic.value = "price"; });
-  });
-
-  // ---------- заявка ----------
-  var form = document.getElementById("leadForm");
-  var btn = document.getElementById("leadBtn");
-  var status = document.getElementById("leadStatus");
-
-  function setStatus(text, cls) { status.textContent = text; status.className = "form__status " + (cls || ""); }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (form._honey.value) return; // бот заполнил скрытое поле
-    var name = form.name.value.trim();
-    var phone = form.phone.value.trim();
-    form.name.classList.toggle("invalid", !name);
-    form.phone.classList.toggle("invalid", phone.replace(/\D/g, "").length < 7);
-    if (!name || phone.replace(/\D/g, "").length < 7) { setStatus(tr("form.req"), "err"); return; }
-
-    var topicText = topic.options[topic.selectedIndex].textContent;
-    var data = {
-      "Имя": name,
-      "Телефон": phone,
-      "Гостиница": form.hotel.value.trim(),
-      "Город": form.city.value.trim(),
-      "Номеров": form.rooms.value.trim(),
-      "Интересует": topicText,
-      "Сообщение": form.message.value.trim(),
-      "Язык сайта": lang.toUpperCase(),
-      _subject: "INNILY: новая заявка — " + topicText + (form.hotel.value.trim() ? " (" + form.hotel.value.trim() + ")" : ""),
-      _template: "table",
-      _captcha: "false"
-    };
-    btn.disabled = true;
-    setStatus(tr("form.sending"));
-    // кабинет опубликован — заявка идёт в app.innily.com/lead (письмо владельцу + админ-панель), иначе FormSubmit
-    var req = APP_READY ? {
-      url: "https://app.innily.com/lead",
-      opts: { method: "POST", body: new URLSearchParams({
-        name: name, phone: phone, hotel: form.hotel.value.trim(), city: form.city.value.trim(),
-        rooms: form.rooms.value.trim(), topic: topic.value, message: form.message.value.trim(), lang: lang, _honey: "" }) }
-    } : {
-      url: FORM_URL,
-      opts: { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) }
-    };
-    fetch(req.url, req.opts).then(function (r) {
-      return r.json().catch(function () { return {}; }).then(function (j) {
-        if (!r.ok || String(j.success) === "false" || j.ok === false) throw new Error(j.message || j.error || r.status);
-      });
-    }).then(function () {
-      form.reset();
-      setStatus(tr("form.ok"), "ok");
-    }).catch(function () {
-      setStatus(tr("form.err"), "err");
-    }).finally(function () {
-      btn.disabled = false;
-    });
-  });
+  // заявка — только через регистрацию в кабинете (app.innily.com): формы на сайте нет
 
   // ---------- анимации ----------
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
