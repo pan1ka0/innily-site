@@ -1,7 +1,7 @@
 // INNILY — © 2026 pan1ka0 (https://github.com/pan1ka0). Все права защищены.
 (function () {
   "use strict";
-  var FORM_URL = "https://formsubmit.co/ajax/support.innlyra@gmail.com"; // заявки приходят на эту почту
+  var FORM_URL = "https://formsubmit.co/ajax/support@innily.com"; // заявки приходят на эту почту
   var LANGS = ["ru", "uz", "en"];
   var DICT = window.I18N || {};
   var lang = "ru";
