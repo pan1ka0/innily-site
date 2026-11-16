@@ -101,6 +101,35 @@
 
   // заявка — только через регистрацию в кабинете (app.innily.com): формы на сайте нет
 
+  // ---------- вошёл ли посетитель в кабинет: «Регистрация / Войти» → «Мой кабинет (Имя)» (+ «Админ-панель») ----------
+  var ME = null;
+  function applyMe() {
+    if (!ME || !ME.loggedIn) return;
+    document.querySelectorAll('[data-app="login"]').forEach(function (a) { a.remove(); });
+    document.querySelectorAll('[data-app="register"]').forEach(function (a) {
+      if (a.closest(".hero__cta")) return;                         // кнопка первого экрана остаётся
+      a.removeAttribute("data-app");
+      a.href = "https://app.innily.com/account";
+      a.textContent = (lang === "en" ? "My account" : lang === "uz" ? "Kabinetim" : "Мой кабинет") + (ME.name ? " (" + ME.name + ")" : "");
+      a.removeAttribute("data-i18n");
+    });
+    if (ME.admin && !document.getElementById("adminLink")) {
+      var right = document.querySelector(".top__right"), btn = right && right.querySelector(".btn--primary");
+      if (btn) {
+        var adm = document.createElement("a");
+        adm.id = "adminLink"; adm.className = "login-link hide-sm"; adm.href = "https://app.innily.com/admin";
+        adm.textContent = lang === "en" ? "Admin panel" : lang === "uz" ? "Admin-panel" : "Админ-панель";
+        right.insertBefore(adm, btn);
+      }
+    }
+  }
+  if (APP_READY && window.fetch) {
+    fetch("https://app.innily.com/api/me", { credentials: "include" })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { ME = j; applyMe(); })
+      .catch(function () { /* кабинет недоступен — оставляем «Регистрация / Войти» */ });
+  }
+
   // ---------- анимации ----------
   var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
